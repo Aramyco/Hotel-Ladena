@@ -15,7 +15,8 @@ import { Amenities } from './components/Amenities';
 import { Footer } from './components/Footer';
 import { DirectInquiryModal } from './components/DirectInquiryModal';
 import { LightboxModal } from './components/LightboxModal';
-import { Phone, MessageCircle } from 'lucide-react';
+import { GmailManagerModal } from './components/GmailManagerModal';
+import { Phone, MessageCircle, Mail } from 'lucide-react';
 import { HOTEL_INFO } from './data/hotelData';
 
 export default function App() {
@@ -31,6 +32,11 @@ export default function App() {
   const [lightboxImage, setLightboxImage] = useState('');
   const [lightboxTitle, setLightboxTitle] = useState('');
   const [lightboxCaption, setLightboxCaption] = useState('');
+
+  // Gmail Manager Modal State
+  const [gmailModalOpen, setGmailModalOpen] = useState(false);
+  const [gmailDraftSubject, setGmailDraftSubject] = useState('');
+  const [gmailDraftBody, setGmailDraftBody] = useState('');
 
   const handleOpenInquiry = (branchId?: 'cabang-1' | 'cabang-2', roomName?: string) => {
     if (branchId) {
@@ -49,10 +55,19 @@ export default function App() {
     setLightboxOpen(true);
   };
 
+  const handleOpenGmailWithDraft = (subject: string, body: string) => {
+    setGmailDraftSubject(subject);
+    setGmailDraftBody(body);
+    setGmailModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-stone-800 font-sans selection:bg-amber-800 selection:text-white">
       {/* Strict 3-zone Header */}
-      <Navbar onOpenInquiry={handleOpenInquiry} />
+      <Navbar
+        onOpenInquiry={handleOpenInquiry}
+        onOpenGmail={() => setGmailModalOpen(true)}
+      />
 
       {/* Main Content Flow */}
       <main className="flex-1">
@@ -98,8 +113,17 @@ export default function App() {
       {/* Quiet Footer */}
       <Footer onOpenInquiry={handleOpenInquiry} />
 
-      {/* Floating Action Button for Quick Receptionist Contact (Mobile & Desktop) */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
+      {/* Floating Action Buttons (Mobile & Desktop) */}
+      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
+        <button
+          onClick={() => setGmailModalOpen(true)}
+          className="flex items-center gap-2 px-3.5 py-2.5 bg-[#2D0A11] hover:bg-[#3D0E18] text-amber-200 hover:text-white font-medium rounded-full shadow-lg border border-[#5A1C27] transition"
+          aria-label="Buka Layanan Email Gmail Hotel Ladena"
+        >
+          <Mail className="w-4 h-4 text-amber-300" />
+          <span className="hidden sm:inline text-xs font-medium">Layanan Gmail</span>
+        </button>
+
         <button
           onClick={() => handleOpenInquiry()}
           className="flex items-center gap-2 px-4 py-3 bg-emerald-700 hover:bg-emerald-800 active:scale-95 text-white font-medium rounded-full shadow-lg border border-emerald-600 transition"
@@ -124,6 +148,7 @@ export default function App() {
         onClose={() => setInquiryModalOpen(false)}
         initialBranchId={inquiryBranch}
         initialRoomName={inquiryRoomName}
+        onOpenGmailWithDraft={handleOpenGmailWithDraft}
       />
 
       {/* Lightbox Modal for Photo Inspection */}
@@ -133,6 +158,14 @@ export default function App() {
         title={lightboxTitle}
         caption={lightboxCaption}
         onClose={() => setLightboxOpen(false)}
+      />
+
+      {/* Gmail Workspace Integration Modal */}
+      <GmailManagerModal
+        isOpen={gmailModalOpen}
+        onClose={() => setGmailModalOpen(false)}
+        initialSubject={gmailDraftSubject}
+        initialBody={gmailDraftBody}
       />
     </div>
   );

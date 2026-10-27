@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, Menu, X, MapPin } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, MapPin, Mail } from 'lucide-react';
 import { HOTEL_INFO } from '../data/hotelData';
 
 interface NavbarProps {
   onOpenInquiry: (branchId?: 'cabang-1' | 'cabang-2', roomName?: string) => void;
+  onOpenGmail: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenGmail }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -51,10 +52,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
         </nav>
 
         {/* Zone 3: 1 primary action */}
-        <div className="hidden sm:flex items-center gap-3 shrink-0">
+        <div className="hidden sm:flex items-center gap-2.5 shrink-0">
+          <button
+            onClick={() => onOpenGmail()}
+            className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-stone-300 hover:text-white border border-[#5A1C27] rounded hover:bg-[#3D0F19] transition-colors whitespace-nowrap shrink-0"
+            title="Layanan Email Gmail Hotel Ladena"
+          >
+            <Mail className="w-3.5 h-3.5 text-amber-400" />
+            <span>Gmail</span>
+          </button>
+
           <a
             href={`tel:${HOTEL_INFO.phoneRaw}`}
-            className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-stone-300 hover:text-white border border-[#5A1C27] rounded hover:bg-[#3D0F19] transition-colors whitespace-nowrap shrink-0"
+            className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-stone-300 hover:text-white border border-[#5A1C27] rounded hover:bg-[#3D0F19] transition-colors whitespace-nowrap shrink-0"
             title="Hubungi Resepsionis Langsung"
           >
             <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
@@ -93,23 +103,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-[#4A141D] bg-[#24080E] px-4 pt-3 pb-6 space-y-3">
-          <div className="grid grid-cols-2 gap-2 text-xs pb-3 border-b border-[#3D0E18]">
+          <div className="grid grid-cols-3 gap-2 text-xs pb-3 border-b border-[#3D0E18]">
             <a
               href={`tel:${HOTEL_INFO.phoneRaw}`}
-              className="flex items-center justify-center gap-2 py-2.5 px-3 bg-[#380E17] text-stone-200 rounded border border-[#521723]"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-[#380E17] text-stone-200 rounded border border-[#521723]"
             >
-              <Phone className="w-4 h-4 text-[#D4AF37]" />
+              <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span className="font-sans font-semibold">Telepon</span>
             </a>
             <a
               href={HOTEL_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-2.5 px-3 bg-emerald-700 text-white rounded font-medium"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-700 text-white rounded font-medium"
             >
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-3.5 h-3.5" />
               <span>WhatsApp</span>
             </a>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenGmail();
+              }}
+              className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-stone-800 text-amber-200 rounded font-medium border border-stone-700"
+            >
+              <Mail className="w-3.5 h-3.5 text-amber-300" />
+              <span>Gmail</span>
+            </button>
           </div>
 
           <div className="flex flex-col space-y-2 text-sm font-medium text-stone-300">

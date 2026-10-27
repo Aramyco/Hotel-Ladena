@@ -1,0 +1,48 @@
+========================================================================
+PANDUAN LENGKAP CARA PASANG WEBSITE HOTEL LADENA DI CPANEL (PUBLIC_HTML)
+========================================================================
+
+PENYEBAB WEBSITE SEBELUMNYA TIDAK BISA DIBUKA:
+Di screenshot cPanel Anda, file yang diupload adalah 'source code' mentah
+(seperti folder src/, package.json, vite.config.ts, tsconfig.json).
+Browser di hosting cPanel TIDAK BISA menjalankan file .tsx secara langsung!
+Browser membutuhkan hasil build (index.html produksi + folder assets/ berisi file .js dan .css).
+
+------------------------------------------------------------------------
+CARA PASANG DENGAN CEPAT & MUDAH (HANYA 3 MENIT):
+------------------------------------------------------------------------
+
+LANGKAH 1: BERSIHKAN FILE MENTAH DI PUBLIC_HTML CPANEL
+1. Buka File Manager cPanel Anda.
+2. Masuk ke folder: public_html
+3. Klik tombol "Select All" di menu atas cPanel.
+4. Klik tombol "Delete" (Hapus file-file lama seperti folder src/, package.json, vite.config.ts, dll agar folder public_html bersih).
+
+LANGKAH 2: UPLOAD FILE ZIP PRODUKSI
+1. Di folder ini, sudah disiapkan file ZIP siap pakai:
+   -> hotel_ladena_cpanel_public_html.zip
+   (Bisa diunduh langsung atau dari project Anda).
+2. Di cPanel File Manager (posisi di folder public_html), klik menu "Upload" di toolbar atas.
+3. Pilih dan upload file "hotel_ladena_cpanel_public_html.zip".
+
+LANGKAH 3: EKSTRAK FILE ZIP DI PUBLIC_HTML
+1. Setelah upload 100% selesai, kembali ke File Manager cPanel.
+2. Klik kanan pada file "hotel_ladena_cpanel_public_html.zip", lalu pilih "Extract" (atau klik tombol "Extract" di menu toolbar atas).
+3. Pastikan target foldernya adalah: /public_html
+4. Klik "Extract Files".
+5. File zip sudah bisa Anda hapus agar menghemat kapasitas hosting.
+
+------------------------------------------------------------------------
+HASIL AKHIR DI DALAM FOLDER PUBLIC_HTML HARUS SEPERTI INI:
+------------------------------------------------------------------------
+- /public_html
+    ├── .htaccess          (File routing Apache agar semua halaman bisa dibuka)
+    ├── index.html         (File utama website yang sudah dikompilasi)
+    ├── robots.txt         (File SEO untuk Googlebot)
+    ├── sitemap.xml        (File Peta Situs untuk Google Search Console)
+    └── assets/            (Folder berisi CSS, JS, dan foto-foto kamar Hotel Ladena)
+
+SELESAI!
+Buka nama domain Anda di browser (misalnya: https://domainanda.com).
+Website Hotel Ladena akan langsung terbuka dengan lancar, cepat, dan responsif di HP maupun Laptop!
+========================================================================

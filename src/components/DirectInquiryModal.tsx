@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, MessageCircle, Phone, Copy, Check, Calendar, Bed, Building2, User, Clock } from 'lucide-react';
+import { X, MessageCircle, Phone, Copy, Check, Calendar, Bed, Building2, User, Clock, Mail } from 'lucide-react';
 import { HOTEL_INFO, BRANCHES, ROOMS } from '../data/hotelData';
 
 interface DirectInquiryModalProps {
@@ -7,6 +7,7 @@ interface DirectInquiryModalProps {
   onClose: () => void;
   initialBranchId?: 'cabang-1' | 'cabang-2';
   initialRoomName?: string;
+  onOpenGmailWithDraft?: (subject: string, body: string) => void;
 }
 
 export const DirectInquiryModal: React.FC<DirectInquiryModalProps> = ({
@@ -14,6 +15,7 @@ export const DirectInquiryModal: React.FC<DirectInquiryModalProps> = ({
   onClose,
   initialBranchId = 'cabang-1',
   initialRoomName = '',
+  onOpenGmailWithDraft,
 }) => {
   const [branchId, setBranchId] = useState<'cabang-1' | 'cabang-2'>(initialBranchId);
   const [roomName, setRoomName] = useState<string>(initialRoomName || 'Superior Room I');
@@ -250,9 +252,26 @@ Mohon informasi ketersediaan kamar dan panduan check-in. Terima kasih.`;
             <span>Kirim via WhatsApp</span>
           </button>
 
+          {onOpenGmailWithDraft && (
+            <button
+              onClick={() => {
+                onClose();
+                onOpenGmailWithDraft(
+                  `Tanya Kamar ${roomName} - ${branchObj.name}`,
+                  generateMessage()
+                );
+              }}
+              className="w-full sm:w-auto flex items-center justify-center gap-1.5 py-2.5 px-3 bg-[#3B0D14] hover:bg-[#50121C] text-amber-200 text-xs font-medium rounded transition shadow-sm"
+              title="Kirim rincian ini melalui Gmail"
+            >
+              <Mail className="w-3.5 h-3.5 text-amber-300" />
+              <span>Kirim via Gmail</span>
+            </button>
+          )}
+
           <a
             href={`tel:${HOTEL_INFO.phoneRaw}`}
-            className="w-full sm:w-auto flex items-center justify-center gap-1.5 py-2.5 px-4 bg-white border border-stone-300 hover:bg-stone-100 text-stone-800 text-xs font-medium rounded transition"
+            className="w-full sm:w-auto flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-stone-300 hover:bg-stone-100 text-stone-800 text-xs font-medium rounded transition"
           >
             <Phone className="w-3.5 h-3.5 text-amber-800" />
             <span>Telepon</span>

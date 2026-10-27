@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://hotelladena.com/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hotelladena.com/assets/aistudio/price_b68c3ce4.jpg</image:loc>
+      <image:title>Tarif Resmi Hotel Ladena Kutacane</image:title>
+      <image:caption>Daftar tarif dan harga resmi kamar Hotel Ladena Kutacane Aceh Tenggara</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hotelladena.com/assets/aistudio/1_ef08b4c2.webp</image:loc>
+      <image:title>Superior Room I Hotel Ladena</image:title>
+      <image:caption>Kamar Superior Room I ber-AC dengan kulkas mini dan teko listrik</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hotelladena.com/assets/aistudio/2_5084574d.webp</image:loc>
+      <image:title>Superior Room II Hotel Ladena</image:title>
+      <image:caption>Kamar Superior Room II dengan lemari cermin besar dan meja rias klasik</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hotelladena.com/assets/aistudio/3_8ed06f82.webp</image:loc>
+      <image:title>Superior Twin Bed Room Hotel Ladena</image:title>
+      <image:caption>Kamar Twin Bed nyaman dengan dua kasur terpisah berlinen putih bersih</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://hotelladena.com/#cabang</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hotelladena.com/#kamar</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hotelladena.com/#tarif</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hotelladena.com/#galeri</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hotelladena.com/#lokasi</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

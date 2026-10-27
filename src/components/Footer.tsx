@@ -114,8 +114,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
         {/* Quiet copyright strip */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-500">
           <p>© {new Date().getFullYear()} Hotel Ladena Kutacane. Semua hak dilindungi undang-undang.</p>
-          <div className="flex items-center gap-4 text-stone-400">
+          <div className="flex items-center gap-3 text-stone-400">
             <span>Kutacane · Aceh Tenggara</span>
+            <span aria-hidden="true">·</span>
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition">Sitemap XML</a>
             <span aria-hidden="true">·</span>
             <a href="#beranda" className="hover:text-amber-300 transition">Kembali ke Atas ↑</a>
           </div>

@@ -1,0 +1,6 @@
+# Robots.txt for Hotel Ladena Kutacane
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hotelladena.com/sitemap.xml

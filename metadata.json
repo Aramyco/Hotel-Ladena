@@ -1,0 +1,6 @@
+{
+  "name": "Hotel Ladena - Pusat Kota Kutacane",
+  "description": "Website resmi Hotel Ladena Kutacane. Menyediakan akomodasi nyaman di pusat kota dengan 2 cabang strategis, galeri kamar lengkap, dan kontak langsung resepsionis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
